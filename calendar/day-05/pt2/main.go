@@ -1,7 +1,6 @@
 package main
 
 import (
-	"advent2021/utils/coding"
 	"advent2021/utils/files"
 )
 
