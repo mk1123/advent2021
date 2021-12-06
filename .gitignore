@@ -9,5 +9,6 @@
 .history/
 
 /secrets
+*.in
 
 .DS_Store
