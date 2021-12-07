@@ -50,7 +50,7 @@ func triangle_cost(nums []int, u int) (cost int) {
 func solvePart2(input []string) (min_diff_sum int) {
 	nums := coding.ParseListAsInt(strings.Split(input[0], ","))
 	min_diff_sum = math.MaxInt64
-	for _, num := range nums {
+	for num := coding.MinList(nums); num <= coding.MaxList(nums); num++ {
 		curr_diff := triangle_cost(nums, num)
 		if curr_diff < min_diff_sum {
 			min_diff_sum = curr_diff

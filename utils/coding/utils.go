@@ -1,6 +1,7 @@
 package coding
 
 import (
+	"math"
 	"strconv"
 )
 
@@ -21,4 +22,24 @@ func SumList(list []int) (sum int) {
 		sum += num
 	}
 	return sum
+}
+
+func MinList(nums []int) (min int) {
+	min = math.MaxInt64
+	for _, num := range nums {
+		if num < min {
+			min = num
+		}
+	}
+	return
+}
+
+func MaxList(nums []int) (max int) {
+	max = math.MinInt64
+	for _, num := range nums {
+		if num > max {
+			max = num
+		}
+	}
+	return
 }
