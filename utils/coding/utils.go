@@ -15,3 +15,10 @@ func ParseListAsInt(list []string) []int {
 	}
 	return ints
 }
+
+func SumList(list []int) (sum int) {
+	for _, num := range list {
+		sum += num
+	}
+	return sum
+}
