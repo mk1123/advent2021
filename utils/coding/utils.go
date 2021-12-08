@@ -2,6 +2,7 @@ package coding
 
 import (
 	"math"
+	"sort"
 	"strconv"
 )
 
@@ -42,4 +43,47 @@ func MaxList(nums []int) (max int) {
 		}
 	}
 	return
+}
+
+func AbsInt(num int) int {
+	if num < 0 {
+		return -num
+	}
+	return num
+}
+
+func SliceContainsInt(slice []int, num int) bool {
+	for _, v := range slice {
+		if v == num {
+			return true
+		}
+	}
+	return false
+}
+
+func DigitsToNum(digits []int) (num int) {
+	for _, digit := range digits {
+		num = num*10 + digit
+	}
+	return
+}
+
+type sortRunes []rune
+
+func (s sortRunes) Less(i, j int) bool {
+	return s[i] < s[j]
+}
+
+func (s sortRunes) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s sortRunes) Len() int {
+	return len(s)
+}
+
+func SortString(s string) string {
+	r := []rune(s)
+	sort.Sort(sortRunes(r))
+	return string(r)
 }

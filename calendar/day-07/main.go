@@ -13,23 +13,6 @@ func main() {
 	println(solvePart2(input))
 }
 
-func abs_int(num int) int {
-	if num < 0 {
-		return -num
-	}
-	return num
-}
-
-func solvePart1(input []string) int {
-	nums := coding.ParseListAsInt(strings.Split(input[0], ","))
-	median := median(nums)
-	diff := 0
-	for _, num := range nums {
-		diff += abs_int(num - median)
-	}
-	return diff
-}
-
 func median(list []int) int {
 	sort.Ints(list)
 	if len(list)%2 == 0 {
@@ -41,10 +24,20 @@ func median(list []int) int {
 
 func triangle_cost(nums []int, u int) (cost int) {
 	for _, num := range nums {
-		diff := abs_int(num - u)
+		diff := coding.AbsInt(num - u)
 		cost += diff * (diff + 1) / 2
 	}
 	return
+}
+
+func solvePart1(input []string) int {
+	nums := coding.ParseListAsInt(strings.Split(input[0], ","))
+	median := median(nums)
+	diff := 0
+	for _, num := range nums {
+		diff += coding.AbsInt(num - median)
+	}
+	return diff
 }
 
 func solvePart2(input []string) (min_diff_sum int) {
